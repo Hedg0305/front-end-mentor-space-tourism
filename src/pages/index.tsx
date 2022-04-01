@@ -1,13 +1,18 @@
 import { NextPage } from "next";
 
-import Navbar from "@/components/Navbar";
+import { Content, HighlightedText, Title, Wrapper } from "@/styles/Home.styles";
 
 const Home: NextPage = () => {
   return (
-    <div>
-      {" "}
-      <Navbar />
-    </div>
+    <Wrapper>
+      <Content>
+        <div>
+          <Title>
+            So, you want to travel to <HighlightedText>Space</HighlightedText>
+          </Title>
+        </div>
+      </Content>
+    </Wrapper>
   );
 };
 

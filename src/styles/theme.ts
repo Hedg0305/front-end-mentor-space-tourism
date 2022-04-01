@@ -4,7 +4,7 @@ export default {
     light_purple: "#D0D6F6",
     light_text: "#fff",
   },
-  typograpy: {
+  typography: {
     Heading1: {
       "font-family": "Bellefair, serif",
       "font-size": "150px",

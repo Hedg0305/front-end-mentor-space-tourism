@@ -4,7 +4,6 @@ import {
   DestinationImageWrapper,
   HRow,
   LeftContent,
-  LeftTitle,
   Option,
   OptionsWrapper,
   RightContent,
@@ -40,7 +39,11 @@ const Destination = () => {
             <Option>Europa</Option>
             <Option>Titan</Option>
           </OptionsWrapper>
-          <InfoBox title="Moon" description={description} />
+          <InfoBox
+            title="Moon"
+            description={description}
+            typography="Heading2"
+          />
 
           <HRow />
           <BottomInfoWrapper>

@@ -17,6 +17,7 @@ import {
 
 import Moon from "@/assets/destination/image-moon.png";
 import InfoBox from "@/components/InfoBox";
+import ContentTitle from "@/components/ContentTitle";
 
 const description =
   "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reprehenderit quae voluptate ratione similique vel sunt?";
@@ -26,9 +27,7 @@ const Destination = () => {
     <Wrapper>
       <Content>
         <LeftContent>
-          <LeftTitle>
-            <span>01</span> Pick your destination
-          </LeftTitle>
+          <ContentTitle number="01" title="Pick your destination" />
 
           <DestinationImageWrapper>
             <Image src={Moon} alt="moon" />

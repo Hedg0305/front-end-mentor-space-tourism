@@ -16,15 +16,10 @@ import {
   InfoContent,
 } from "@/styles/Destination.styles";
 
-import Moon from "@/assets/destination/image-moon.png";
-
 import InfoBox from "@/components/InfoBox";
 import ContentTitle from "@/components/ContentTitle";
 
 import { getDestinations } from "@/services/api";
-
-const description =
-  "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reprehenderit quae voluptate ratione similique vel sunt?";
 
 interface Destination {
   name: string;
@@ -46,12 +41,8 @@ const Destination = ({ destinations }: DestinationProps) => {
   );
 
   const handleChangeActiveDestination = (destination: Destination) => {
-    console.log(destination);
-
     setActiveDestination(destination);
   };
-
-  console.log(`/destination/image-${activeDestination.name}.png`);
 
   return (
     <Wrapper>

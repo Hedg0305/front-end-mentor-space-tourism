@@ -47,6 +47,7 @@ export const Navigation = styled.nav`
   a {
     color: ${({ theme }) => theme.colors.light_text};
     text-decoration: none;
+    text-transform: uppercase;
 
     ${({ theme }) => theme.typography.NavText}
 

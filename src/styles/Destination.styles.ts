@@ -5,6 +5,10 @@ interface ActiveOptionProps {
   active: boolean;
 }
 
+interface ActiveIndex {
+  isActiveIndex: boolean;
+}
+
 export const Wrapper = styled.div`
   height: 100vh;
   width: 100%;
@@ -104,4 +108,23 @@ export const InfoTitle = styled.h4`
 export const InfoContent = styled.p`
   ${({ theme }) => theme.typography.Subheading1};
   color: ${({ theme }) => theme.colors.light_text};
+`;
+
+export const IndexesWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+`;
+
+export const Index = styled.div<ActiveIndex>`
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+
+  margin-top: 123px;
+
+  cursor: pointer;
+
+  background-color: ${({ isActiveIndex, theme }) =>
+    isActiveIndex ? theme.colors.light_purple : "#979797"};
 `;

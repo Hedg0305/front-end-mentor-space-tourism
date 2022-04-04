@@ -37,7 +37,7 @@ export default {
     },
     NavText: {
       "font-family": "Barlow Condensed, sans-serif",
-      "font-size": "14px",
+      "font-size": "16px",
       "letter-spacing": "2.35px",
     },
     body: {

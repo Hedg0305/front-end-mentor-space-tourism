@@ -1,4 +1,6 @@
 import Image from "next/image";
+import { GetStaticProps } from "next";
+import { useState } from "react";
 import {
   Content,
   DestinationImageWrapper,
@@ -15,13 +17,42 @@ import {
 } from "@/styles/Destination.styles";
 
 import Moon from "@/assets/destination/image-moon.png";
+
 import InfoBox from "@/components/InfoBox";
 import ContentTitle from "@/components/ContentTitle";
+
+import { getDestinations } from "@/services/api";
 
 const description =
   "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reprehenderit quae voluptate ratione similique vel sunt?";
 
-const Destination = () => {
+interface Destination {
+  name: string;
+  images: {
+    png: string;
+    webp: string;
+  };
+  description: string;
+  distance: string;
+  travel: string;
+}
+interface DestinationProps {
+  destinations: Destination[];
+}
+
+const Destination = ({ destinations }: DestinationProps) => {
+  const [activeDestination, setActiveDestination] = useState<Destination>(
+    destinations[0]
+  );
+
+  const handleChangeActiveDestination = (destination: Destination) => {
+    console.log(destination);
+
+    setActiveDestination(destination);
+  };
+
+  console.log(`/destination/image-${activeDestination.name}.png`);
+
   return (
     <Wrapper>
       <Content>
@@ -29,35 +60,41 @@ const Destination = () => {
           <ContentTitle number="01" title="Pick your destination" />
 
           <DestinationImageWrapper>
-            <Image src={Moon} alt="moon" />
+            <Image
+              src={`/destination/image-${activeDestination.name.toLocaleLowerCase()}.png`}
+              alt={`${activeDestination.name} image`}
+              height={445}
+              width={445}
+            />
           </DestinationImageWrapper>
         </LeftContent>
         <RightContent>
           <OptionsWrapper>
-            <Option>Moon</Option>
-            <Option>Mars</Option>
-            <Option>Europa</Option>
-            <Option>Titan</Option>
+            {destinations.map((destination) => (
+              <Option
+                key={destination.name}
+                onClick={() => handleChangeActiveDestination(destination)}
+                active={activeDestination.name === destination.name}
+              >
+                {destination.name}
+              </Option>
+            ))}
           </OptionsWrapper>
           <InfoBox
-            title="Moon"
-            description={description}
+            title={activeDestination.name}
+            description={activeDestination.description}
             typography="Heading2"
           />
 
           <HRow />
           <BottomInfoWrapper>
             <InfoWrapper>
-              <InfoTitle>
-                <span>02</span> Explore the moon
-              </InfoTitle>
-              <InfoContent>384,400KM</InfoContent>
+              <InfoTitle>Avg. distance</InfoTitle>
+              <InfoContent>{activeDestination.distance}</InfoContent>
             </InfoWrapper>
             <InfoWrapper>
-              <InfoTitle>
-                <span>02</span> Explore the moon
-              </InfoTitle>
-              <InfoContent>384,400KM</InfoContent>
+              <InfoTitle>Est. travel time</InfoTitle>
+              <InfoContent>{activeDestination.travel}</InfoContent>
             </InfoWrapper>
           </BottomInfoWrapper>
         </RightContent>
@@ -67,3 +104,12 @@ const Destination = () => {
 };
 
 export default Destination;
+
+export const getStaticProps: GetStaticProps = async () => {
+  const destinations = await getDestinations();
+
+  return {
+    props: { destinations },
+    revalidate: 60,
+  };
+};

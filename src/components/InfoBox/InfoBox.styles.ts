@@ -11,7 +11,6 @@ export const Title = styled.h1<TitleProps>`
   color: ${({ theme }) => theme.colors.light_text};
 
   text-transform: uppercase;
-  white-space: nowrap;
 `;
 
 export const Description = styled.p`

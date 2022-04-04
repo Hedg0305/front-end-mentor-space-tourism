@@ -9,7 +9,7 @@ import {
   CrewImageWrapper,
 } from "@/styles/Crew.styles";
 
-import CrewMember from "@/assets/crew/image-douglas-hurley.webp";
+import CrewMember from "@/assets/crew/image-mark-shuttleworth.webp";
 
 const description =
   "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Enim nesciunt, ducimus quo labore, perspiciatis nihil inventore voluptatem eligendi rerum, facere minus veniam dolores dignissimos. Asperiores esse amet excepturi facere nemo!";
@@ -22,13 +22,13 @@ const Crew = () => {
           <ContentTitle number="02" title="Meet your crew" />
           <CrewRole>Commander</CrewRole>
           <InfoBox
-            title="Douglas Hurley"
+            title="Mark Shuttleworth"
             description={description}
             typography="Heading3"
           />
         </LeftContent>
         <CrewImageWrapper>
-          <Image src={CrewMember} layout="fill" />
+          <Image src={CrewMember} layout="fill" objectFit="contain" />
         </CrewImageWrapper>
       </Content>
     </Wrapper>

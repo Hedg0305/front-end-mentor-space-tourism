@@ -1,5 +1,9 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import BackgroundImage from "@/assets/destination/background-destination-desktop.jpg";
+
+interface ActiveOptionProps {
+  active: boolean;
+}
 
 export const Wrapper = styled.div`
   height: 100vh;
@@ -14,7 +18,7 @@ export const Wrapper = styled.div`
 export const Content = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
-  place-items: center;
+  place-items: start;
 
   color: ${({ theme }) => theme.colors.light_text};
 `;
@@ -31,26 +35,41 @@ export const LeftTitle = styled.h1`
 `;
 
 export const DestinationImageWrapper = styled.div`
+  position: relative;
+
   margin-top: 97px;
   margin-left: 45px;
 `;
 
 export const RightContent = styled.div`
-  max-width: 445px;
+  width: 445px;
+  margin-left: 157px;
+  margin-top: 90px;
 `;
 
 export const OptionsWrapper = styled.div`
   margin-bottom: 37px;
+  display: flex;
+  gap: 35px;
 `;
 
-export const Option = styled.button`
+export const Option = styled.button<ActiveOptionProps>`
   text-transform: uppercase;
   border: none;
   background: transparent;
+  padding: 0;
+  padding-bottom: 12px;
 
   cursor: pointer;
-  color: ${({ theme }) => theme.colors.light_text};
+  color: ${({ theme }) => theme.colors.light_purple};
   ${({ theme }) => theme.typography.NavText};
+
+  ${({ active }) =>
+    active &&
+    css`
+      color: ${({ theme }) => theme.colors.light_text};
+      border-bottom: 2px solid ${({ theme }) => theme.colors.light_text};
+    `}
 `;
 
 export const HRow = styled.hr`
@@ -77,6 +96,7 @@ export const InfoWrapper = styled.div`
 export const InfoTitle = styled.h4`
   ${({ theme }) => theme.typography.Subheading2};
   color: ${({ theme }) => theme.colors.light_purple};
+  text-transform: uppercase;
 
   margin-bottom: 12px;
 `;

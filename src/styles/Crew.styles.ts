@@ -19,9 +19,7 @@ export const Content = styled.div`
   color: ${({ theme }) => theme.colors.light_text};
 `;
 
-export const LeftContent = styled.div`
-  flex: 1;
-`;
+export const LeftContent = styled.div``;
 
 export const CrewRole = styled.h4`
   ${({ theme }) => theme.typography.Heading4};
@@ -34,6 +32,7 @@ export const CrewRole = styled.h4`
 export const CrewImageWrapper = styled.div`
   position: relative;
 
-  flex: 1;
-  margin-left: 30px;
+  max-width: 568px;
+  width: 100%;
+  height: auto;
 `;

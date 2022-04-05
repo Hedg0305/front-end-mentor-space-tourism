@@ -20,6 +20,7 @@ import InfoBox from "@/components/InfoBox";
 import ContentTitle from "@/components/ContentTitle";
 
 import { getDestinations } from "@/services/api";
+import { ViewPorts } from "@/types/types";
 
 interface Destination {
   name: string;
@@ -33,9 +34,10 @@ interface Destination {
 }
 interface DestinationProps {
   destinations: Destination[];
+  viewPort: ViewPorts;
 }
 
-const Destination = ({ destinations }: DestinationProps) => {
+const Destination = ({ destinations, viewPort }: DestinationProps) => {
   const [activeDestination, setActiveDestination] = useState<Destination>(
     destinations[0]
   );

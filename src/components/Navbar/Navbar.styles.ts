@@ -3,7 +3,7 @@ import { ViewPorts } from "@/types/types";
 
 export const NavbarContainer = styled.div<{ viewport: ViewPorts }>`
   width: 100%;
-  padding-left: ${({ viewport }) => (viewport === "desktop" ? "55px" : "39")}px;
+  padding-left: ${({ viewport }) => (viewport === "desktop" ? "55" : "39")}px;
 
   display: flex;
   align-items: center;

@@ -17,6 +17,7 @@ import { ViewPorts } from "@/types/types";
 const Navbar = () => {
   const [viewPort, setViewPort] = useState<ViewPorts>("desktop");
   const width = useWindowSize();
+
   useEffect(() => {
     if (width > 1200) {
       setViewPort("desktop");

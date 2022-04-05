@@ -1,26 +1,49 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import BackgroundImage from "@/assets/home/background-home-desktop.jpg";
+import { ViewPorts } from "@/types/types";
 
-export const Wrapper = styled.div`
-  height: 100vh;
+export const Wrapper = styled.div<{ viewports: ViewPorts }>`
+  min-height: 100vh;
   width: 100%;
   background: url(${BackgroundImage.src}) no-repeat;
   background-size: cover;
 
-  padding-top: 387px;
-  padding-inline: 165px;
+  padding-top: ${({ viewports }) =>
+    viewports === "desktop" ? "387px" : "202px"};
+
+  padding-left: ${({ viewports }) =>
+    viewports === "desktop" ? "165px" : "55px"};
+
+  padding-right: ${({ viewports }) =>
+    viewports === "desktop" ? "155px" : "55px"};
 `;
 
-export const Content = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  place-items: center;
+export const Content = styled.div<{ viewports: ViewPorts }>`
+  display: flex;
+  ${({ viewports }) =>
+    viewports === "desktop"
+      ? css`
+          flex-direction: row;
+          justify-content: space-between;
+        `
+      : css`
+          flex-direction: column;
+          align-items: center;
+          gap: 156px;
+
+          padding-bottom: 90px;
+          text-align: center;
+        `};
+
+  max-width: 1440px;
+  width: 100%;
+  margin: 0 auto;
 
   color: ${({ theme }) => theme.colors.light_text};
 `;
 
 export const LeftContent = styled.div`
-  max-width: 390px;
+  width: 450px;
 `;
 
 export const Title = styled.h5`
@@ -46,13 +69,15 @@ export const Description = styled.p`
   color: ${({ theme }) => theme.colors.light_purple};
 `;
 
-export const RightContent = styled.div`
+export const RightContent = styled.div<{ viewports: ViewPorts }>`
   height: 274px;
   width: 274px;
   border-radius: 50%;
   background-color: ${({ theme }) => theme.colors.light_text};
 
-  margin-left: auto;
+  text-align: ${({ viewports }) =>
+    viewports === "desktop" ? "left" : "center"};
+
   margin-top: auto;
 
   a {

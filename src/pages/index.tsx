@@ -2,6 +2,8 @@
 import { NextPage } from "next";
 
 import Link from "next/link";
+import { useEffect, useState } from "react";
+import useWindowWidth from "@/utils/hooks/useWindowWidth";
 import {
   Content,
   Description,
@@ -11,11 +13,16 @@ import {
   Title,
   Wrapper,
 } from "@/styles/Home.styles";
+import { ViewPorts } from "@/types/types";
 
-const Home: NextPage = () => {
+interface HomeProps {
+  viewPort: ViewPorts;
+}
+
+const Home = ({ viewPort }: HomeProps) => {
   return (
-    <Wrapper>
-      <Content>
+    <Wrapper viewports={viewPort}>
+      <Content viewports={viewPort}>
         <LeftContent>
           <Title>
             So, you want to travel to
@@ -31,7 +38,7 @@ const Home: NextPage = () => {
           </Description>
         </LeftContent>
 
-        <RightContent>
+        <RightContent viewports={viewPort}>
           <Link href="/destination">
             <a>Explore</a>
           </Link>

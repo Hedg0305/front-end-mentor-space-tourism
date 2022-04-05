@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { GetStaticProps } from "next";
+import { GetServerSideProps } from "next";
 import { useState } from "react";
 import {
   Content,
@@ -96,7 +96,7 @@ const Destination = ({ destinations }: DestinationProps) => {
 
 export default Destination;
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getServerSideProps: GetServerSideProps = async () => {
   const destinations = await getDestinations();
 
   return {

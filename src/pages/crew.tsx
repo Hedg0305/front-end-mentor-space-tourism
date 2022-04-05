@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { GetStaticProps } from "next";
+import { GetServerSideProps } from "next";
 import { useState } from "react";
 import ContentTitle from "@/components/ContentTitle";
 import InfoBox from "@/components/InfoBox";
@@ -74,13 +74,12 @@ const Crew = ({ crew }: PageProps) => {
 
 export default Crew;
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getServerSideProps: GetServerSideProps = async () => {
   const crew = await getCrew();
 
   return {
     props: {
       crew,
     },
-    revalidate: 60,
   };
 };

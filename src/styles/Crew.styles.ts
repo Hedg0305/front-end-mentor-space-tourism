@@ -11,13 +11,18 @@ export const Wrapper = styled.div`
   background-size: cover;
 
   padding-top: 212px;
-  padding-inline: 165px;
 `;
 
 export const Content = styled.div`
   display: flex;
   justify-content: space-between;
   height: 100%;
+
+  max-width: 1440px;
+  width: 100%;
+  margin: 0 auto;
+
+  padding-left: 55px;
 
   color: ${({ theme }) => theme.colors.light_text};
 `;
@@ -35,7 +40,7 @@ export const CrewRole = styled.h4`
 export const CrewImageWrapper = styled.div`
   position: relative;
 
-  width: 100%;
+  width: 50%;
   height: auto;
 `;
 

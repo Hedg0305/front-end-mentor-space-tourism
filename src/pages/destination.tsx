@@ -52,7 +52,7 @@ const Destination = ({ destinations }: DestinationProps) => {
 
           <DestinationImageWrapper>
             <Image
-              src={`/destinationImages/image-${activeDestination.name.toLocaleLowerCase()}.png`}
+              src={`/destination/image-${activeDestination.name.toLocaleLowerCase()}.png`}
               alt={`${activeDestination.name} image`}
               height={445}
               width={445}

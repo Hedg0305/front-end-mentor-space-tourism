@@ -60,7 +60,7 @@ const Crew = ({ crew }: PageProps) => {
         </LeftContent>
         <CrewImageWrapper>
           <Image
-            src={`/crewImages/image-${activeCrewMember.name
+            src={`/crew/image-${activeCrewMember.name
               .replace(" ", "-")
               .toLocaleLowerCase()}.png`}
             layout="fill"
@@ -76,7 +76,6 @@ export default Crew;
 
 export const getServerSideProps: GetServerSideProps = async () => {
   const crew = await getCrew();
-  console.log(crew);
 
   return {
     props: { crew },

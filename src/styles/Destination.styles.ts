@@ -12,10 +12,15 @@ export const Wrapper = styled.div`
   background-size: cover;
 
   padding-top: 212px;
-  padding-inline: 165px;
 `;
 
 export const Content = styled.div`
+  max-width: 1440px;
+  width: 100%;
+  margin: 0 auto;
+
+  padding-inline: 55px;
+
   display: grid;
   grid-template-columns: 1fr 1fr;
   place-items: start;

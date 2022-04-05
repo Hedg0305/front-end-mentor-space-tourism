@@ -48,22 +48,7 @@ export const Title = styled.h3`
   ${({ theme }) => theme.typography.NavText};
   color: ${({ theme }) => theme.colors.light_purple};
 
-  span {
-    ${({ theme }) => theme.typography.Heading3};
-    color: ${({ theme }) => theme.colors.light_text};
-    line-height: 80px;
-    text-transform: uppercase;
-
-    white-space: nowrap;
-  }
-`;
-
-export const ContentBody = styled.p`
-  ${({ theme }) => theme.typography.body};
-  color: ${({ theme }) => theme.colors.light_purple};
-  line-height: 26px;
-
-  max-width: 470px;
+  margin-bottom: 11px;
 `;
 
 export const IndexesWrapper = styled.div`

@@ -1,15 +1,16 @@
 import styled from "styled-components";
+import { ViewPorts } from "@/types/types";
 
-export const NavbarContainer = styled.div`
+export const NavbarContainer = styled.div<{ viewport: ViewPorts }>`
   width: 100%;
-  padding-left: 55px;
+  padding-left: ${({ viewport }) => (viewport === "desktop" ? "55px" : "39")}px;
 
   display: flex;
   align-items: center;
   justify-content: space-between;
 
   position: absolute;
-  top: 40px;
+  top: ${({ viewport }) => (viewport === "desktop" ? "40" : "0")}px;
 
   height: 96px;
 `;
@@ -32,17 +33,18 @@ export const HRow = styled.hr`
   margin-right: -40px;
 `;
 
-export const Navigation = styled.nav`
-  padding: 39px 165px 38px 123px;
+export const Navigation = styled.nav<{ viewport: ViewPorts }>`
+  height: 100%;
+  padding: ${({ viewport }) =>
+    viewport === "desktop" ? "39px 165px 38px 123px" : "39px 46px 39px 48px"};
 
-  //rgba to white transparent
   background-color: rgba(255, 255, 255, 0.04);
   backdrop-filter: blur(10px);
 
   flex-shrink: 0;
   display: flex;
   align-items: center;
-  gap: 48px;
+  gap: ${({ viewport }) => (viewport === "desktop" ? "48px" : "37px")};
 
   a {
     color: ${({ theme }) => theme.colors.light_text};

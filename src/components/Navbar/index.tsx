@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import Link from "next/link";
 import Image from "next/image";
+import { useState, useEffect } from "react";
 import {
   HRow,
   NavbarContainer,
@@ -10,16 +11,31 @@ import {
 
 import Logo from "@/assets/shared/logo.svg";
 
+import useWindowSize from "@/utils/hooks/useWindowWidth";
+import { ViewPorts } from "@/types/types";
+
 const Navbar = () => {
+  const [viewPort, setViewPort] = useState<ViewPorts>("desktop");
+  const width = useWindowSize();
+  useEffect(() => {
+    if (width > 1200) {
+      setViewPort("desktop");
+    } else if (width > 768) {
+      setViewPort("tablet");
+    } else {
+      setViewPort("mobile");
+    }
+  }, [width]);
+
   return (
-    <NavbarContainer>
+    <NavbarContainer viewport={viewPort}>
       <LogoWrapper>
         <Image src={Logo} alt="Logo" width={48} height={48} />
       </LogoWrapper>
 
-      <HRow />
+      {viewPort === "desktop" && <HRow />}
 
-      <Navigation>
+      <Navigation viewport={viewPort}>
         <Link href="/">
           <a>
             <span>00</span> Home

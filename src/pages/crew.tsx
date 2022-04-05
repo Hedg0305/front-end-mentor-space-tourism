@@ -41,7 +41,7 @@ const Crew = ({ crew }: PageProps) => {
       <Content>
         <LeftContent>
           <ContentTitle number="02" title="Meet your crew" />
-          <CrewRole>Commander</CrewRole>
+          <CrewRole>{activeCrewMember.role}</CrewRole>
           <InfoBox
             title={activeCrewMember.name}
             description={activeCrewMember.bio}

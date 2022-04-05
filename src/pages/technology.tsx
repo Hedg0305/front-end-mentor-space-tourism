@@ -4,7 +4,6 @@ import Image from "next/image";
 import { getTechnologies } from "@/services/api";
 import {
   Content,
-  ContentBody,
   ImageWrapper,
   Index,
   Title,
@@ -15,6 +14,7 @@ import {
 } from "@/styles/Technology.styles";
 
 import ContentTitle from "@/components/ContentTitle";
+import InfoBox from "@/components/InfoBox";
 
 type Technology = {
   name: string;
@@ -36,14 +36,6 @@ const Technology = ({ technologies }: PageProps) => {
 
   const handleChangeActiveTechnology = (technology: Technology): void => {
     setActiveTechnology(technology);
-
-    console.log("oiiii");
-
-    console.log(
-      `/technology/image-${activeTechnology.name
-        .replace(" ", "-")
-        .toLocaleLowerCase()}.png`
-    );
   };
 
   return (
@@ -66,9 +58,12 @@ const Technology = ({ technologies }: PageProps) => {
             <TextWrapper>
               <Title>
                 The terminology ... <br />
-                <span>{activeTechnology.name}</span>
               </Title>
-              <ContentBody>{activeTechnology.description}</ContentBody>
+              <InfoBox
+                title={activeTechnology.name}
+                description={activeTechnology.description}
+                typography="Heading3"
+              />
             </TextWrapper>
           </div>
         </LeftContent>

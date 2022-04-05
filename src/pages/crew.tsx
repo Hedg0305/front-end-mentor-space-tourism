@@ -76,6 +76,7 @@ export default Crew;
 
 export const getServerSideProps: GetServerSideProps = async () => {
   const crew = await getCrew();
+  console.log(crew);
 
   return {
     props: { crew },

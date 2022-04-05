@@ -1,34 +1,42 @@
 import styled, { css } from "styled-components";
 import BackgroundImage from "@/assets/destination/background-destination-desktop.jpg";
+import { ViewPorts } from "@/types/types";
 
 interface ActiveOptionProps {
   active: boolean;
 }
 
 export const Wrapper = styled.div`
-  height: 100vh;
+  min-height: 100vh;
   width: 100%;
   background: url(${BackgroundImage.src}) no-repeat;
   background-size: cover;
 
   padding-top: 212px;
+
+  padding-bottom: 62px;
 `;
 
-export const Content = styled.div`
+export const Content = styled.div<{ viewport: ViewPorts }>`
   max-width: 1440px;
-  width: 100%;
   margin: 0 auto;
 
   padding-inline: 55px;
 
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
+
+  justify-content: space-between;
+  flex-direction: ${({ viewport }) => (viewport === "desktop" ? "" : "column")};
+  align-items: ${({ viewport }) => (viewport === "desktop" ? "" : "center")};
+
   place-items: start;
 
   color: ${({ theme }) => theme.colors.light_text};
 `;
 
-export const LeftContent = styled.div``;
+export const LeftContent = styled.div`
+  width: 100%;
+`;
 
 export const LeftTitle = styled.h1`
   ${({ theme }) => theme.typography.Heading5};
@@ -39,17 +47,34 @@ export const LeftTitle = styled.h1`
   }
 `;
 
-export const DestinationImageWrapper = styled.div`
+export const DestinationImageWrapper = styled.div<{ viewport: ViewPorts }>`
   position: relative;
 
-  margin-top: 97px;
-  margin-left: 45px;
+  max-width: ${({ viewport }) => (viewport === "desktop" ? "" : "300px")};
+
+  ${({ viewport }) =>
+    viewport === "desktop"
+      ? css`
+          margin-top: 97px;
+          margin-left: 45px;
+        `
+      : css`
+          margin: 60px auto 53px;
+        `}
 `;
 
-export const RightContent = styled.div`
+export const RightContent = styled.div<{ viewport: ViewPorts }>`
   width: 445px;
-  margin-left: 157px;
-  margin-top: 90px;
+
+  ${({ viewport }) =>
+    viewport === "desktop"
+      ? css`
+          margin-left: 157px;
+          margin-top: 90px;
+        `
+      : css`
+          margin: 0 auto;
+        `}
 `;
 
 export const OptionsWrapper = styled.div`

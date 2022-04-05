@@ -78,8 +78,6 @@ export const getServerSideProps: GetServerSideProps = async () => {
   const crew = await getCrew();
 
   return {
-    props: {
-      crew,
-    },
+    props: { crew },
   };
 };

@@ -1,6 +1,9 @@
 import styled from "styled-components";
 import BackgroundImage from "@/assets/crew/background-crew-desktop.jpg";
 
+interface ActiveIndex {
+  isActiveIndex: boolean;
+}
 export const Wrapper = styled.div`
   height: 100vh;
   width: 100%;
@@ -32,7 +35,28 @@ export const CrewRole = styled.h4`
 export const CrewImageWrapper = styled.div`
   position: relative;
 
-  max-width: 568px;
   width: 100%;
   height: auto;
+`;
+
+export const IndexesWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+
+  position: absolute;
+  bottom: 94px;
+`;
+
+export const Index = styled.div<ActiveIndex>`
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+
+  margin-top: 123px;
+
+  cursor: pointer;
+
+  background-color: ${({ isActiveIndex, theme }) =>
+    isActiveIndex ? theme.colors.light_purple : "#979797"};
 `;

@@ -9,13 +9,11 @@ import {
   LeftContent,
   CrewRole,
   CrewImageWrapper,
+  IndexesWrapper,
+  Index,
 } from "@/styles/Crew.styles";
 
-import { Index, IndexesWrapper } from "@/styles/Destination.styles";
 import { getCrew } from "@/services/api";
-
-const description =
-  "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Enim nesciunt, ducimus quo labore, perspiciatis nihil inventore voluptatem eligendi rerum, facere minus veniam dolores dignissimos. Asperiores esse amet excepturi facere nemo!";
 
 type CrewMember = {
   name: string;
@@ -37,12 +35,6 @@ const Crew = ({ crew }: PageProps) => {
   const handleChangeActiveCrewMember = (crewMember: CrewMember): void => {
     setActiveCrewMember(crewMember);
   };
-
-  console.log(
-    `/crew/image-${activeCrewMember.name
-      .replace(" ", "-")
-      .toLocaleLowerCase()}.png`
-  );
 
   return (
     <Wrapper>

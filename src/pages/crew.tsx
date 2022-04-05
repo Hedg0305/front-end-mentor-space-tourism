@@ -60,7 +60,7 @@ const Crew = ({ crew }: PageProps) => {
         </LeftContent>
         <CrewImageWrapper>
           <Image
-            src={`/crew/image-${activeCrewMember.name
+            src={`/crewImages/image-${activeCrewMember.name
               .replace(" ", "-")
               .toLocaleLowerCase()}.png`}
             layout="fill"

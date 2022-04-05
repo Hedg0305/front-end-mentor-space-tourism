@@ -6,13 +6,14 @@ interface ActiveOptionProps {
   active: boolean;
 }
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.div<{ viewport: ViewPorts }>`
   min-height: 100vh;
   width: 100%;
   background: url(${BackgroundImage.src}) no-repeat;
   background-size: cover;
 
-  padding-top: 212px;
+  padding-top: ${({ viewport }) =>
+    viewport === "desktop" ? "212px" : "136px"};
 
   padding-bottom: 62px;
 `;

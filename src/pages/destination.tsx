@@ -47,7 +47,7 @@ const Destination = ({ destinations, viewPort }: DestinationProps) => {
   };
 
   return (
-    <Wrapper>
+    <Wrapper viewport={viewPort}>
       <Content viewport={viewPort}>
         <LeftContent viewport={viewPort}>
           <ContentTitle number="01" title="Pick your destination" />

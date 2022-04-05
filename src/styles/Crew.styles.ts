@@ -27,7 +27,13 @@ export const Content = styled.div`
   color: ${({ theme }) => theme.colors.light_text};
 `;
 
-export const LeftContent = styled.div``;
+export const LeftContent = styled.div`
+  max-width: 614px;
+
+  & > div:nth-of-type(2) > p {
+    max-width: 444px;
+  }
+`;
 
 export const CrewRole = styled.h4`
   ${({ theme }) => theme.typography.Heading4};
@@ -39,9 +45,14 @@ export const CrewRole = styled.h4`
 
 export const CrewImageWrapper = styled.div`
   position: relative;
-
   width: 50%;
-  height: auto;
+
+  & .crew-image {
+    width: 100% !important;
+    top: "0";
+    height: unset !important;
+    min-height: 0px !important;
+  }
 `;
 
 export const IndexesWrapper = styled.div`

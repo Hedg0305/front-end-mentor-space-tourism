@@ -64,7 +64,7 @@ const Crew = ({ crew }: PageProps) => {
               .replace(" ", "-")
               .toLocaleLowerCase()}.png`}
             layout="fill"
-            objectFit="contain"
+            className="crew-image"
           />
         </CrewImageWrapper>
       </Content>

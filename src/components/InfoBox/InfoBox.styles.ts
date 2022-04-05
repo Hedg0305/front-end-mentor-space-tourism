@@ -18,6 +18,4 @@ export const Description = styled.p`
   color: ${({ theme }) => theme.colors.light_purple};
   margin-top: 14px;
   line-height: 26px;
-
-  max-width: 444px;
 `;

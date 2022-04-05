@@ -34,8 +34,12 @@ export const Content = styled.div<{ viewport: ViewPorts }>`
   color: ${({ theme }) => theme.colors.light_text};
 `;
 
-export const LeftContent = styled.div`
-  width: 100%;
+export const LeftContent = styled.div<{ viewport: ViewPorts }>`
+  ${({ viewport }) =>
+    viewport === "tablet" &&
+    css`
+      width: 100%;
+    `}
 `;
 
 export const LeftTitle = styled.h1`
@@ -64,23 +68,30 @@ export const DestinationImageWrapper = styled.div<{ viewport: ViewPorts }>`
 `;
 
 export const RightContent = styled.div<{ viewport: ViewPorts }>`
-  width: 445px;
-
   ${({ viewport }) =>
     viewport === "desktop"
       ? css`
           margin-left: 157px;
           margin-top: 90px;
+          width: 445px;
         `
       : css`
           margin: 0 auto;
+          text-align: center;
+          width: 573px;
         `}
 `;
 
-export const OptionsWrapper = styled.div`
+export const OptionsWrapper = styled.div<{ viewport: ViewPorts }>`
   margin-bottom: 37px;
   display: flex;
   gap: 35px;
+
+  ${({ viewport }) =>
+    viewport === "tablet" &&
+    css`
+      justify-content: center;
+    `}
 `;
 
 export const Option = styled.button<ActiveOptionProps>`
@@ -110,12 +121,18 @@ export const HRow = styled.hr`
   margin-top: 59px;
 `;
 
-export const BottomInfoWrapper = styled.div`
+export const BottomInfoWrapper = styled.div<{ viewport: ViewPorts }>`
   display: flex;
   flex-direction: row;
   gap: 79px;
 
   margin-top: 28px;
+
+  ${({ viewport }) =>
+    viewport === "tablet" &&
+    css`
+      justify-content: center;
+    `}
 `;
 
 export const InfoWrapper = styled.div`

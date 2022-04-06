@@ -1,9 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import { NextPage } from "next";
-
 import Link from "next/link";
-import { useEffect, useState } from "react";
-import useWindowWidth from "@/utils/hooks/useWindowWidth";
+
 import {
   Content,
   Description,
@@ -13,13 +10,8 @@ import {
   Title,
   Wrapper,
 } from "@/styles/Home.styles";
-import { ViewPorts } from "@/types/types";
 
-interface HomeProps {
-  viewPort: ViewPorts;
-}
-
-const Home = ({ viewPort }: HomeProps) => {
+const Home = () => {
   return (
     <Wrapper>
       <Content>

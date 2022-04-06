@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { ViewPorts } from "@/types/types";
 
 export const NavbarContainer = styled.div`
   width: 100%;

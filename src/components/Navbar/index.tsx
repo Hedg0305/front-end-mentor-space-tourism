@@ -21,8 +21,6 @@ const Navbar = () => {
   useEffect(() => {
     if (width > 1200) {
       setViewPort("desktop");
-    } else if (width > 768) {
-      setViewPort("tablet");
     } else {
       setViewPort("mobile");
     }

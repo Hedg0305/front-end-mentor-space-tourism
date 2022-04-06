@@ -15,7 +15,6 @@ import {
 
 import ContentTitle from "@/components/ContentTitle";
 import InfoBox from "@/components/InfoBox";
-import { ViewPorts } from "@/types/types";
 
 type Technology = {
   name: string;
@@ -28,10 +27,9 @@ type Technology = {
 
 interface PageProps {
   technologies: Technology[];
-  viewPort: ViewPorts;
 }
 
-const Technology = ({ technologies, viewPort }: PageProps) => {
+const Technology = ({ technologies }: PageProps) => {
   const [activeTechnology, setActiveTechnology] = useState<Technology>(
     technologies[0]
   );

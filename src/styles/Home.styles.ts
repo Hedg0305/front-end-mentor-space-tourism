@@ -1,6 +1,5 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import BackgroundImage from "@/assets/home/background-home-desktop.jpg";
-import { ViewPorts } from "@/types/types";
 
 export const Wrapper = styled.div`
   min-height: 100vh;

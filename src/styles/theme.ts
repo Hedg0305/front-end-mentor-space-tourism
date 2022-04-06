@@ -45,4 +45,8 @@ export default {
       "font-size": "18px",
     },
   },
+  breakpoints: {
+    mobile: "768px",
+    tablet: "1200px",
+  },
 };

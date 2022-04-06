@@ -48,9 +48,12 @@ export const CrewImageWrapper = styled.div`
   width: 50%;
 
   & .crew-image {
+    object-fit: contain;
     width: 100% !important;
-    top: "0";
+    position: absolute !important;
     height: unset !important;
+    top: auto !important;
+
     min-height: 0px !important;
   }
 `;

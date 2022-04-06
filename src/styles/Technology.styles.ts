@@ -6,7 +6,7 @@ interface ActiveIndex {
 }
 
 export const Wrapper = styled.div`
-  height: 100vh;
+  min-height: 100vh;
   width: 100%;
   background: url(${BackgroundImage.src}) no-repeat;
   background-size: cover;
@@ -16,17 +16,37 @@ export const Wrapper = styled.div`
 
 export const Content = styled.div`
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   height: 100%;
   max-width: 1440px;
   width: 100%;
   margin: 0 auto;
 
-  padding-left: 55px;
-
-  padding-left: 55px;
-
   color: ${({ theme }) => theme.colors.light_text};
+
+  padding-left: 55px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+    padding-left: 0;
+  }
+
+  & > div:nth-of-type(1) {
+    margin-bottom: 137px;
+    margin-left: 55px;
+
+    @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+      margin-bottom: 60px;
+    }
+  }
+
+  & > div:nth-of-type(2) {
+    display: flex;
+    flex-direction: row;
+
+    @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+      flex-direction: column-reverse;
+    }
+  }
 `;
 
 export const LeftContent = styled.div`
@@ -84,8 +104,14 @@ export const Index = styled.div<ActiveIndex>`
 export const ImageWrapper = styled.div`
   position: relative;
 
-  max-width: 515px;
+  margin-bottom: 0px;
+
   width: 100%;
+  height: 310px;
 
   margin-left: auto;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+    margin-bottom: 56px;
+  }
 `;

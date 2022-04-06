@@ -1,46 +1,46 @@
 import styled, { css } from "styled-components";
 import BackgroundImage from "@/assets/destination/background-destination-desktop.jpg";
-import { ViewPorts } from "@/types/types";
 
 interface ActiveOptionProps {
   active: boolean;
 }
 
-export const Wrapper = styled.div<{ viewport: ViewPorts }>`
+export const Wrapper = styled.div`
   min-height: 100vh;
   width: 100%;
   background: url(${BackgroundImage.src}) no-repeat;
   background-size: cover;
 
-  padding-top: ${({ viewport }) =>
-    viewport === "desktop" ? "212px" : "136px"};
-
+  padding-top: 212px;
   padding-bottom: 62px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+    padding-top: 136px;
+  }
 `;
 
-export const Content = styled.div<{ viewport: ViewPorts }>`
+export const Content = styled.div`
   max-width: 1440px;
   margin: 0 auto;
 
   padding-inline: 55px;
 
   display: flex;
-
   justify-content: space-between;
-  flex-direction: ${({ viewport }) => (viewport === "desktop" ? "" : "column")};
-  align-items: ${({ viewport }) => (viewport === "desktop" ? "" : "center")};
-
   place-items: start;
 
   color: ${({ theme }) => theme.colors.light_text};
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
-export const LeftContent = styled.div<{ viewport: ViewPorts }>`
-  ${({ viewport }) =>
-    viewport === "tablet" &&
-    css`
-      width: 100%;
-    `}
+export const LeftContent = styled.div`
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+    width: 100%;
+  }
 `;
 
 export const LeftTitle = styled.h1`
@@ -52,47 +52,38 @@ export const LeftTitle = styled.h1`
   }
 `;
 
-export const DestinationImageWrapper = styled.div<{ viewport: ViewPorts }>`
+export const DestinationImageWrapper = styled.div`
   position: relative;
 
-  max-width: ${({ viewport }) => (viewport === "desktop" ? "" : "300px")};
+  margin-top: 97px;
+  margin-left: 45px;
 
-  ${({ viewport }) =>
-    viewport === "desktop"
-      ? css`
-          margin-top: 97px;
-          margin-left: 45px;
-        `
-      : css`
-          margin: 60px auto 53px;
-        `}
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+    max-width: 300px;
+    margin: 60px auto 53px;
+  }
 `;
 
-export const RightContent = styled.div<{ viewport: ViewPorts }>`
-  ${({ viewport }) =>
-    viewport === "desktop"
-      ? css`
-          margin-left: 157px;
-          margin-top: 90px;
-          width: 445px;
-        `
-      : css`
-          margin: 0 auto;
-          text-align: center;
-          width: 573px;
-        `}
+export const RightContent = styled.div`
+  margin-left: 157px;
+  margin-top: 90px;
+  width: 445px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+    margin: 0 auto;
+    text-align: center;
+    width: 573px;
+  }
 `;
 
-export const OptionsWrapper = styled.div<{ viewport: ViewPorts }>`
+export const OptionsWrapper = styled.div`
   margin-bottom: 37px;
   display: flex;
   gap: 35px;
 
-  ${({ viewport }) =>
-    viewport === "tablet" &&
-    css`
-      justify-content: center;
-    `}
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+    justify-content: center;
+  }
 `;
 
 export const Option = styled.button<ActiveOptionProps>`
@@ -122,18 +113,16 @@ export const HRow = styled.hr`
   margin-top: 59px;
 `;
 
-export const BottomInfoWrapper = styled.div<{ viewport: ViewPorts }>`
+export const BottomInfoWrapper = styled.div`
   display: flex;
   flex-direction: row;
   gap: 79px;
 
   margin-top: 28px;
 
-  ${({ viewport }) =>
-    viewport === "tablet" &&
-    css`
-      justify-content: center;
-    `}
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+    justify-content: center;
+  }
 `;
 
 export const InfoWrapper = styled.div`

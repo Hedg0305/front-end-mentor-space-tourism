@@ -15,6 +15,7 @@ import {
 
 import ContentTitle from "@/components/ContentTitle";
 import InfoBox from "@/components/InfoBox";
+import { ViewPorts } from "@/types/types";
 
 type Technology = {
   name: string;
@@ -27,9 +28,10 @@ type Technology = {
 
 interface PageProps {
   technologies: Technology[];
+  viewPort: ViewPorts;
 }
 
-const Technology = ({ technologies }: PageProps) => {
+const Technology = ({ technologies, viewPort }: PageProps) => {
   const [activeTechnology, setActiveTechnology] = useState<Technology>(
     technologies[0]
   );
@@ -41,41 +43,43 @@ const Technology = ({ technologies }: PageProps) => {
   return (
     <Wrapper>
       <Content>
-        <LeftContent>
-          <ContentTitle number="03" title="Meet your crew" />
-          <div>
-            <IndexesWrapper>
-              {technologies.map((technology, index) => (
-                <Index
-                  key={technology.name}
-                  isActiveIndex={technology.name === activeTechnology.name}
-                  onClick={() => handleChangeActiveTechnology(technology)}
-                >
-                  {index + 1}
-                </Index>
-              ))}
-            </IndexesWrapper>
-            <TextWrapper>
-              <Title>
-                The terminology ... <br />
-              </Title>
-              <InfoBox
-                title={activeTechnology.name}
-                description={activeTechnology.description}
-                typography="Heading3"
-              />
-            </TextWrapper>
-          </div>
-        </LeftContent>
-        <ImageWrapper>
-          <Image
-            src={`/technology/image-${activeTechnology.name
-              .replace(" ", "-")
-              .toLocaleLowerCase()}-portrait.jpg`}
-            layout="fill"
-            objectFit="contain"
-          />
-        </ImageWrapper>
+        <ContentTitle number="03" title="Meet your crew" />
+        <div>
+          <LeftContent>
+            <div>
+              <IndexesWrapper>
+                {technologies.map((technology, index) => (
+                  <Index
+                    key={technology.name}
+                    isActiveIndex={technology.name === activeTechnology.name}
+                    onClick={() => handleChangeActiveTechnology(technology)}
+                  >
+                    {index + 1}
+                  </Index>
+                ))}
+              </IndexesWrapper>
+              <TextWrapper>
+                <Title>
+                  The terminology ... <br />
+                </Title>
+                <InfoBox
+                  title={activeTechnology.name}
+                  description={activeTechnology.description}
+                  typography="Heading3"
+                />
+              </TextWrapper>
+            </div>
+          </LeftContent>
+          <ImageWrapper>
+            <Image
+              src={`/technology/image-${activeTechnology.name
+                .replace(" ", "-")
+                .toLocaleLowerCase()}-landscape.jpg`}
+              layout="fill"
+              objectFit="cover"
+            />
+          </ImageWrapper>
+        </div>
       </Content>
     </Wrapper>
   );

@@ -47,12 +47,12 @@ const Destination = ({ destinations, viewPort }: DestinationProps) => {
   };
 
   return (
-    <Wrapper viewport={viewPort}>
-      <Content viewport={viewPort}>
-        <LeftContent viewport={viewPort}>
+    <Wrapper>
+      <Content>
+        <LeftContent>
           <ContentTitle number="01" title="Pick your destination" />
 
-          <DestinationImageWrapper viewport={viewPort}>
+          <DestinationImageWrapper>
             <Image
               src={`/destination/image-${activeDestination.name.toLocaleLowerCase()}.png`}
               alt={`${activeDestination.name} image`}
@@ -61,8 +61,8 @@ const Destination = ({ destinations, viewPort }: DestinationProps) => {
             />
           </DestinationImageWrapper>
         </LeftContent>
-        <RightContent viewport={viewPort}>
-          <OptionsWrapper viewport={viewPort}>
+        <RightContent>
+          <OptionsWrapper>
             {destinations.map((destination) => (
               <Option
                 key={destination.name}
@@ -80,7 +80,7 @@ const Destination = ({ destinations, viewPort }: DestinationProps) => {
           />
 
           <HRow />
-          <BottomInfoWrapper viewport={viewPort}>
+          <BottomInfoWrapper>
             <InfoWrapper>
               <InfoTitle>Avg. distance</InfoTitle>
               <InfoContent>{activeDestination.distance}</InfoContent>

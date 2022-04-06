@@ -1,18 +1,23 @@
 import styled from "styled-components";
 import { ViewPorts } from "@/types/types";
 
-export const NavbarContainer = styled.div<{ viewport: ViewPorts }>`
+export const NavbarContainer = styled.div`
   width: 100%;
-  padding-left: ${({ viewport }) => (viewport === "desktop" ? "55" : "39")}px;
+  padding-left: 55px;
 
   display: flex;
   align-items: center;
   justify-content: space-between;
 
   position: absolute;
-  top: ${({ viewport }) => (viewport === "desktop" ? "40" : "0")}px;
+  top: 40px;
 
   height: 96px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+    top: 0;
+    padding-left: 39px;
+  }
 `;
 
 export const LogoWrapper = styled.div`
@@ -33,10 +38,9 @@ export const HRow = styled.hr`
   margin-right: -40px;
 `;
 
-export const Navigation = styled.nav<{ viewport: ViewPorts }>`
+export const Navigation = styled.nav`
   height: 100%;
-  padding: ${({ viewport }) =>
-    viewport === "desktop" ? "39px 165px 38px 123px" : "39px 46px 39px 48px"};
+  padding: 39px 165px 38px 123px;
 
   background-color: rgba(255, 255, 255, 0.04);
   backdrop-filter: blur(10px);
@@ -44,7 +48,12 @@ export const Navigation = styled.nav<{ viewport: ViewPorts }>`
   flex-shrink: 0;
   display: flex;
   align-items: center;
-  gap: ${({ viewport }) => (viewport === "desktop" ? "48px" : "37px")};
+  gap: 48px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+    gap: 37px;
+    padding: 39px 46px 39px 48px;
+  }
 
   a {
     color: ${({ theme }) => theme.colors.light_text};

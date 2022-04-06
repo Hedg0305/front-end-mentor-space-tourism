@@ -29,14 +29,14 @@ const Navbar = () => {
   }, [width]);
 
   return (
-    <NavbarContainer viewport={viewPort}>
+    <NavbarContainer>
       <LogoWrapper>
         <Image src={Logo} alt="Logo" width={48} height={48} />
       </LogoWrapper>
 
       {viewPort === "desktop" && <HRow />}
 
-      <Navigation viewport={viewPort}>
+      <Navigation>
         <Link href="/">
           <a>
             <span>00</span> Home

@@ -21,8 +21,8 @@ interface HomeProps {
 
 const Home = ({ viewPort }: HomeProps) => {
   return (
-    <Wrapper viewports={viewPort}>
-      <Content viewports={viewPort}>
+    <Wrapper>
+      <Content>
         <LeftContent>
           <Title>
             So, you want to travel to
@@ -38,7 +38,7 @@ const Home = ({ viewPort }: HomeProps) => {
           </Description>
         </LeftContent>
 
-        <RightContent viewports={viewPort}>
+        <RightContent>
           <Link href="/destination">
             <a>Explore</a>
           </Link>

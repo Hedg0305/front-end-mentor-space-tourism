@@ -118,6 +118,7 @@ export const Index = styled.div<ActiveIndex>`
         `};
 
   user-select: none;
+  cursor: pointer;
 
   height: 80px;
   width: 80px;

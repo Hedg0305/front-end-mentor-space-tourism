@@ -14,6 +14,7 @@ import {
 } from "@/styles/Crew.styles";
 
 import { getCrew } from "@/services/api";
+import { ViewPorts } from "@/types/types";
 
 type CrewMember = {
   name: string;
@@ -27,46 +28,50 @@ type CrewMember = {
 
 interface PageProps {
   crew: CrewMember[];
+  viewPort: ViewPorts;
 }
 
-const Crew = ({ crew }: PageProps) => {
+const Crew = ({ crew, viewPort }: PageProps) => {
   const [activeCrewMember, setActiveCrewMember] = useState<CrewMember>(crew[0]);
 
   const handleChangeActiveCrewMember = (crewMember: CrewMember): void => {
     setActiveCrewMember(crewMember);
   };
+  console.log(viewPort);
 
   return (
     <Wrapper>
       <Content>
-        <LeftContent>
-          <ContentTitle number="02" title="Meet your crew" />
-          <CrewRole>{activeCrewMember.role}</CrewRole>
-          <InfoBox
-            title={activeCrewMember.name}
-            description={activeCrewMember.bio}
-            typography="Heading3"
-          />
+        <ContentTitle number="02" title="Meet your crew" />
+        <div>
+          <LeftContent>
+            <CrewRole>{activeCrewMember.role}</CrewRole>
+            <InfoBox
+              title={activeCrewMember.name}
+              description={activeCrewMember.bio}
+              typography={viewPort === "desktop" ? "Heading3" : "Heading3.5"}
+            />
 
-          <IndexesWrapper>
-            {crew.map((crewMember) => (
-              <Index
-                key={crewMember.name}
-                isActiveIndex={crewMember.name === activeCrewMember.name}
-                onClick={() => handleChangeActiveCrewMember(crewMember)}
-              />
-            ))}
-          </IndexesWrapper>
-        </LeftContent>
-        <CrewImageWrapper>
-          <Image
-            src={`/crew/image-${activeCrewMember.name
-              .replace(" ", "-")
-              .toLocaleLowerCase()}.png`}
-            layout="fill"
-            className="crew-image"
-          />
-        </CrewImageWrapper>
+            <IndexesWrapper>
+              {crew.map((crewMember) => (
+                <Index
+                  key={crewMember.name}
+                  isActiveIndex={crewMember.name === activeCrewMember.name}
+                  onClick={() => handleChangeActiveCrewMember(crewMember)}
+                />
+              ))}
+            </IndexesWrapper>
+          </LeftContent>
+          <CrewImageWrapper>
+            <Image
+              src={`/crew/image-${activeCrewMember.name
+                .replace(" ", "-")
+                .toLocaleLowerCase()}.png`}
+              layout="fill"
+              className="crew-image"
+            />
+          </CrewImageWrapper>
+        </div>
       </Content>
     </Wrapper>
   );

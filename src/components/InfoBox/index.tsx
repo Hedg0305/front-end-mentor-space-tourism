@@ -3,7 +3,7 @@ import { Wrapper, Title, Description } from "./InfoBox.styles";
 interface InfoBoxProps {
   title: string;
   description: string;
-  typography: "Heading2" | "Heading3";
+  typography: "Heading2" | "Heading3" | "Heading3.5";
 }
 
 const InfoBox = ({ title, description, typography }: InfoBoxProps) => {

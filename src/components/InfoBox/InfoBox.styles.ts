@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 interface TitleProps {
-  typography: "Heading2" | "Heading3";
+  typography: "Heading2" | "Heading3" | "Heading3.5";
 }
 
 export const Wrapper = styled.div``;

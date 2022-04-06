@@ -17,6 +17,10 @@ export default {
       "font-family": "Bellefair, serif",
       "font-size": "56px",
     },
+    "Heading3.5": {
+      "font-family": "Bellefair, serif",
+      "font-size": "40px",
+    },
     Heading4: {
       "font-family": "Bellefair, serif",
       "font-size": "32px",

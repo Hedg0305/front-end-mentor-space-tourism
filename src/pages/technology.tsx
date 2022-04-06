@@ -15,6 +15,7 @@ import {
 
 import ContentTitle from "@/components/ContentTitle";
 import InfoBox from "@/components/InfoBox";
+import { ViewPorts } from "@/types/types";
 
 type Technology = {
   name: string;
@@ -27,9 +28,10 @@ type Technology = {
 
 interface PageProps {
   technologies: Technology[];
+  viewPort: ViewPorts;
 }
 
-const Technology = ({ technologies }: PageProps) => {
+const Technology = ({ technologies, viewPort }: PageProps) => {
   const [activeTechnology, setActiveTechnology] = useState<Technology>(
     technologies[0]
   );
@@ -63,7 +65,9 @@ const Technology = ({ technologies }: PageProps) => {
                 <InfoBox
                   title={activeTechnology.name}
                   description={activeTechnology.description}
-                  typography="Heading3"
+                  typography={
+                    viewPort === "desktop" ? "Heading3" : "Heading3.5"
+                  }
                 />
               </TextWrapper>
             </div>
@@ -72,9 +76,12 @@ const Technology = ({ technologies }: PageProps) => {
             <Image
               src={`/technology/image-${activeTechnology.name
                 .replace(" ", "-")
-                .toLocaleLowerCase()}-landscape.jpg`}
+                .toLocaleLowerCase()}-${
+                viewPort === "desktop" ? "portrait" : "landscape"
+              }.jpg`}
               layout="fill"
-              objectFit="cover"
+              objectFit={viewPort === "desktop" ? "contain" : "fill"}
+              className="crew-image"
             />
           </ImageWrapper>
         </div>

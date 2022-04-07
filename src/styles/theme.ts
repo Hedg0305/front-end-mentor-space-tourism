@@ -30,6 +30,16 @@ export default {
       "font-size": "28px",
       "letter-spacing": "4.75px",
     },
+    Heading6: {
+      "font-family": "Barlow Condensed, sans-serif",
+      "font-size": "20px",
+      "letter-spacing": "3.38px",
+    },
+    Heading7: {
+      "font-family": "Barlow Condensed, sans-serif",
+      "font-size": "16px",
+      "letter-spacing": "2.7px",
+    },
     Subheading1: {
       "font-family": "Bellefair, serif",
       "font-size": "28px",
@@ -47,6 +57,14 @@ export default {
     body: {
       "font-family": "Barlow Condensed, sans-serif",
       "font-size": "18px",
+    },
+    body2: {
+      "font-family": "Barlow Condensed, sans-serif",
+      "font-size": "16px",
+    },
+    body3: {
+      "font-family": "Barlow Condensed, sans-serif",
+      "font-size": "15px",
     },
   },
   breakpoints: {

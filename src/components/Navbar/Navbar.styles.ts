@@ -17,6 +17,12 @@ export const NavbarContainer = styled.div`
     top: 0;
     padding-left: 39px;
   }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    top: 0;
+    padding-left: 24px;
+    align-items: flex-start;
+  }
 `;
 
 export const LogoWrapper = styled.div`
@@ -26,6 +32,10 @@ export const LogoWrapper = styled.div`
   flex-shrink: 0;
 
   margin-right: 64px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    margin-top: 24px;
+  }
 `;
 
 export const HRow = styled.hr`

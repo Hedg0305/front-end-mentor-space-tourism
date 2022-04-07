@@ -37,7 +37,6 @@ const Crew = ({ crew, viewPort }: PageProps) => {
   const handleChangeActiveCrewMember = (crewMember: CrewMember): void => {
     setActiveCrewMember(crewMember);
   };
-  console.log(viewPort);
 
   return (
     <Wrapper>

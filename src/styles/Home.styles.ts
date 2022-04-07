@@ -32,7 +32,7 @@ export const Content = styled.div`
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
     flex-direction: column;
     align-items: center;
-    gap: 156px;
+    gap: 80px;
 
     padding-bottom: 90px;
     text-align: center;
@@ -40,7 +40,7 @@ export const Content = styled.div`
 `;
 
 export const LeftContent = styled.div`
-  width: 450px;
+  max-width: 450px;
 `;
 
 export const Title = styled.h5`
@@ -48,13 +48,24 @@ export const Title = styled.h5`
 
   text-transform: uppercase;
   color: ${({ theme }) => theme.colors.light_purple};
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+    ${({ theme }) => theme.typography.Heading6}
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+    ${({ theme }) => theme.typography.Heading7}
+  }
 `;
 
 export const HighlightedText = styled.span`
   ${({ theme }) => theme.typography.Heading1}
-
   text-transform: uppercase;
   color: ${({ theme }) => theme.colors.light_text};
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    ${({ theme }) => theme.typography.Heading2}
+  }
 `;
 
 export const Description = styled.p`
@@ -64,6 +75,16 @@ export const Description = styled.p`
   line-height: 32px;
 
   color: ${({ theme }) => theme.colors.light_purple};
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+    ${({ theme }) => theme.typography.body2}
+    line-height: 24px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    ${({ theme }) => theme.typography.body3}
+    line-height: 24px;
+  }
 `;
 
 export const RightContent = styled.div`
@@ -78,6 +99,13 @@ export const RightContent = styled.div`
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
     text-align: center;
+    height: 242px;
+    width: 242px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    height: 150px;
+    width: 150px;
   }
 
   a {
